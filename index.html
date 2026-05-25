@@ -3,62 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine 💘</title>
+<title>Pardon 🥺</title>
 
 <style>
 body {
   font-family: Arial, sans-serif;
-  background: #ffe6f0;
+  background: #fff1f3;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
 }
 
 .card {
   background: white;
-  padding: 30px;
-  border-radius: 16px;
+  padding: 28px;
+  border-radius: 18px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
   width: 90%;
-  max-width: 360px;
+  max-width: 380px;
+}
+
+.gif {
+  max-width: 100%;
+  border-radius: 14px;
+  margin: 12px 0 20px;
 }
 
 .buttons {
   position: relative;
-  height: 120px;
+  height: 130px;
 }
 
 button {
-  padding: 12px 22px;
-  font-size: 16px;
+  padding: 13px 24px;
+  font-size: 17px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-}
-
-#yes {
-  background: #ff4d88;
-  color: white;
+  margin: 8px;
 }
 
 #no {
+  background: #ff5c8a;
+  color: white;
+}
+
+#yes {
   background: #ccc;
   position: absolute;
   left: 50%;
+  top: 55px;
   transform: translateX(-50%);
 }
 
 .hidden {
   display: none;
-}
-
-img {
-  max-width: 100%;
-  border-radius: 12px;
-  margin-top: 15px;
 }
 </style>
 </head>
@@ -66,38 +68,45 @@ img {
 <body>
 
 <div class="card" id="question">
-  <h1>Léa, est-ce que tu veux être ma valentine ? 💖</h1>
+  <h1>Est-ce que tu m’en veux toujours ? 🥺</h1>
+
+  <img class="gif" 
+       src="https://media.giphy.com/media/yr7n0u3qzO9nG/giphy.gif" 
+       alt="Flamme triste">
+
   <div class="buttons">
-    <button id="yes">Oui</button>
     <button id="no">Non</button>
+    <button id="yes">Oui</button>
   </div>
 </div>
 
 <div class="card hidden" id="result">
-  <h2>😏 J’en avais aucun doute</h2>
-  <p>
-    Je le savais que tu m’aimais.<br>
-    Je le savais qu’on était amis pour la vie…<br>
-    voire plus. 💕
-  </p>
+  <h2>Merci beaucoup 🥺💖</h2>
 
-  <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="Humour love gif">
+  <img class="gif" 
+       src="https://media.giphy.com/media/11s7Ke7jcNxCHS/giphy.gif" 
+       alt="Stitch pitié">
+
+  <p>
+    Merci beaucoup de pas encore trop m’en vouloir.<br><br>
+    Je suis désolé, j’espère qu’on va réussir à s’entendre à nouveau.
+  </p>
 </div>
 
 <script>
-const noBtn = document.getElementById('no');
 const yesBtn = document.getElementById('yes');
+const noBtn = document.getElementById('no');
 
-function moveButton() {
-  const x = Math.random() * 200 - 100;
-  const y = Math.random() * 80;
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+function moveYesButton() {
+  const x = Math.random() * 220 - 110;
+  const y = Math.random() * 90;
+  yesBtn.style.transform = `translate(${x}px, ${y}px)`;
 }
 
-noBtn.addEventListener('mouseover', moveButton);
-noBtn.addEventListener('touchstart', moveButton);
+yesBtn.addEventListener('mouseover', moveYesButton);
+yesBtn.addEventListener('touchstart', moveYesButton);
 
-yesBtn.addEventListener('click', () => {
+noBtn.addEventListener('click', () => {
   document.getElementById('question').classList.add('hidden');
   document.getElementById('result').classList.remove('hidden');
 });
@@ -105,5 +114,3 @@ yesBtn.addEventListener('click', () => {
 
 </body>
 </html>
-
-
